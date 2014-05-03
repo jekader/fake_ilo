@@ -1,0 +1,57 @@
+#! /bin/sh
+
+### BEGIN INIT INFO
+# Provides:          fake_ilo
+# Required-Start:    $local_fs $remote_fs $network $libvirtd $syslog
+# Required-Stop:     $local_fs $remote_fs $network $libvirtd $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: iLO emulation for testing purposes
+# Description:       service that starts an iLO emulator which will trigger libvirt VMs
+### END INIT INFO
+
+set -e
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/usr/local/bin/ilo.py
+NAME=fake_ilo
+DESC="iLO emulator"
+
+PIDFILE=/var/run/$NAME.pid
+SCRIPTNAME=/etc/init.d/$NAME
+
+# Gracefully exit if the package has been removed.
+test -x $DAEMON || exit 0
+
+# Read config file if it is present.
+#if [ -r /etc/default/$NAME ]
+#then
+#       . /etc/default/$NAME
+#fi
+
+case "$1" in
+  start)
+    echo -n "Starting $DESC: $NAME"
+    start-stop-daemon --start --quiet --pidfile $PIDFILE --exec $DAEMON --background --make-pidfile
+#    $DAEMON
+    echo "."
+    ;;
+  stop)
+    echo -n "Stopping $DESC: $NAME"
+    start-stop-daemon --stop --quiet --pidfile $PIDFILE
+    echo "."
+    ;;
+  restart|force-reload)
+    echo -n "Restarting $DESC: $NAME"
+    start-stop-daemon --stop --quiet --pidfile $PIDFILE
+    sleep 1
+    start-stop-daemon --start --quiet --pidfile $PIDFILE --exec $DAEMON --background --make-pidfile
+    echo "."
+    ;;
+  *)
+    echo "Usage: $SCRIPTNAME {start|stop|restart|force-reload}" >&2
+    exit 1
+    ;;
+esac
+
+exit 0
