@@ -28,4 +28,6 @@ INSTALL:
 USAGE:
 ------
  
- The script starts listening on port 1234 and uses the username sent from the oVirt fencing agent as the name of the VM to query/fence. The password is not important. When a username is not equal to any VM name on the machine, "NaN" is returned, which should produce an error on oVirt side.
+ The script starts listening on port 1234 and uses the username sent from the oVirt fencing agent as the name of the VM to query/fence. The password is not important. When a username is not equal to any VM name on the machine, "NaN" is returned, which should produce an error on oVirt side. Logs are written to /var/log/fake_ilo.log
+ 
+ Most of the settings are hardcoded, but the code is pretty simple so they can be changed as needed.
