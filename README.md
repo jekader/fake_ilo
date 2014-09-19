@@ -3,6 +3,21 @@ fake_ilo
 
 iLO emulator which can power cycle libvirt VMs. It was written by me to perform tests of oVirt/RHEV Power Management features by installing hosts as libvirt VMs and querying/fencing them using this script for demo purposes.
 
+The script is installed on a libvirt host, inside which an oVirt cluster is deployed as VMs. I
+See the below picture as an example:
+
+```
+----------------------------------------------------------
+| --------------  ---------------  ----------------      |
+| |oVirt-host1 |  | obirt-host2 |  | ovirt-engine | -    |
+| --------------  ---------------  ----------------  |   |
+|       |             |              |               v   |
+|       #### KVM host with libvirt ####  <----  fake_ilo |
+----------------------------------------------------------
+```
+
+You do not install the script directly on oVirt nodes you are testing - it needs to control the "hardware" of this nodes, which in this case is libvirt+KVM.
+
 DISCLAIMER:
 -----------
 This script was made for testing purposes only with no security in mind. The quality of code may be dangerous for mental health of the observer. Use at your own risk.
