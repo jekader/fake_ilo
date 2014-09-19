@@ -46,3 +46,20 @@ USAGE:
  The script starts listening on port 1234 and uses the username sent from the oVirt fencing agent as the name of the VM to query/fence. The password is not important. When a username is not equal to any VM name on the machine, "NaN" is returned, which should produce an error on oVirt side. Logs are written to /var/log/fake_ilo.log
  
  Most of the settings are hardcoded, but the code is pretty simple so they can be changed as needed.
+ 
+TROUBLESHOOTING:
+----------------
+
+To test the script, install the fence agent (should be installed on oVirt nodes by default):
+
+ `# yum install fence-agents`
+ 
+On the libvirt host run fake_ilo in foreground:
+
+ `# /usr/local/bin/ilo.py`
+ 
+Test the fence agent manually:
+
+ `# fence_ilo -a 192.168.0.123 -u 1234 -l test -p test -o status`
+ 
+Observe the errors displayed by the script
