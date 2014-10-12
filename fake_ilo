@@ -13,7 +13,7 @@
 set -e
 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-DAEMON=/usr/local/bin/ilo.py
+DAEMON=/usr/bin/ilo.py
 NAME=fake_ilo
 DESC="iLO emulator"
 

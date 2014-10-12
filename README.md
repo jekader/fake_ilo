@@ -25,20 +25,51 @@ This script was made for testing purposes only with no security in mind. The qua
 INSTALL:
 --------
 
-1. copy ilo.py to /usr/local/bin/  and make it executable
-2. copy fake_ilo to /etc/init.d/ and make it executable
-3. create configuration directory:
+a) as .deb file:
 
- `# mkdir /etc/fake_ilo/`
+1. install dependencies:
+ `$ sudo apt-get install git devscripts debhelper make`
 
-4. go into the config directory and generate a self-signed certificate by running this command. Data provided in the requested fields is not important: oVirt does not verify certificates:
+2. fetch the source and build the package:
+
+ `$ git clone https://github.com/jekader/fake_ilo.git`
+ `$ tar -cjf fake-ilo_0.0.1.orig.tar.bz2 fake_ilo/`
+ `$ cd fake_ilo`
+ `$ debuild -us -uc`
+
+3. install the resulting .deb
+ `$ sudo dpkg -i ../fake-ilo_0.0.1-1_amd64.deb`
+
+b) manually:
+
+1. install dependencies:
+ `$ sudo apt-get install git make`
+
+2. fetch the source and build the package:
+
+ `$ git clone https://github.com/jekader/fake_ilo.git`
+ `$ cd fake_ilo`
+ `$ make`
+ `$ sudo make install`
+
+ENABLE:
+-------
+
+register the init script (Debian):
+
+ `update-rc.d fake_ilo enable`
+
+
+CUSTOM CERTIFICATE:
+-------------------
+
+The install script creates a default certificate which should be enough for testing. To replace it, follwo the steps:
+
+1. go into the config directory and generate a self-signed certificate by running this command. Data provided in the requested fields is not important: oVirt does not verify certificates:
 
  `# cd /etc/fake_ilo/`
 
  `# openssl req -x509 -newkey rsa:2048 -keyout server.key -out server.crt -nodes -days 9999`
-5. register the init script (Debian):
-
- `update-rc.d fake_ilo enable`
  
 USAGE:
 ------
