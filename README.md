@@ -33,8 +33,11 @@ a) as .deb file:
 2. fetch the source and build the package:
 
  `$ git clone https://github.com/jekader/fake_ilo.git`
+
  `$ tar -cjf fake-ilo_0.0.1.orig.tar.bz2 fake_ilo/`
+
  `$ cd fake_ilo`
+
  `$ debuild -us -uc`
 
 3. install the resulting .deb
@@ -48,8 +51,11 @@ b) manually:
 2. fetch the source and build the package:
 
  `$ git clone https://github.com/jekader/fake_ilo.git`
+
  `$ cd fake_ilo`
+
  `$ make`
+
  `$ sudo make install`
 
 ENABLE:
@@ -87,7 +93,7 @@ To test the script, install the fence agent (should be installed on oVirt nodes 
  
 On the libvirt host run fake_ilo in foreground:
 
- `# /usr/local/bin/ilo.py`
+ `# /usr/bin/ilo.py`
  
 Test the fence agent manually:
 
