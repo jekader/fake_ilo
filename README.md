@@ -28,6 +28,7 @@ INSTALL:
 a) as .deb file:
 
 1. install dependencies:
+
  `$ sudo apt-get install git devscripts debhelper make`
 
 2. fetch the source and build the package:
@@ -41,11 +42,13 @@ a) as .deb file:
  `$ debuild -us -uc`
 
 3. install the resulting .deb
+
  `$ sudo dpkg -i ../fake-ilo_0.0.1-1_amd64.deb`
 
 b) manually:
 
 1. install dependencies:
+
  `$ sudo apt-get install git make`
 
 2. fetch the source and build the package:
