@@ -1,0 +1,13 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: fake_ilo
+Upstream-Contact: Jeka der <jekader@gmail.com>
+Source: https://github.com/jekader/fake_ilo
+
+Files: *
+Copyright: No Copyright
+License: CC0-1.0-Universal
+ This software is in Public Domain.
+ For more information, please see:
+ http://creativecommons.org/publicdomain/zero/1.0/
+
+

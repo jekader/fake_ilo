@@ -1,0 +1,14 @@
+Source: fake-ilo
+Maintainer: Jeka Der <jekader@gmail.com>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.6
+Build-Depends: debhelper (>= 9), openssl, python
+
+Package: fake-ilo
+Architecture: any
+Depends: openssl, python, libvirt
+Description: iLO emulator
+ iLO emulator which can power cycle libvirt VMs. It was written by me to perform
+ tests of oVirt/RHEV Power Management features by installing hosts as libvirt
+ VMs and querying/fencing them using this script for demo purposes.
