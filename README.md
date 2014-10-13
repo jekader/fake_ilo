@@ -35,11 +35,9 @@ a) as .deb file:
 
  `$ git clone https://github.com/jekader/fake_ilo.git`
 
- `$ tar -cjf fake-ilo_0.0.1.orig.tar.bz2 fake_ilo/`
-
  `$ cd fake_ilo`
 
- `$ debuild -us -uc`
+ `$ debuild -b -us -uc`
 
 3. install the resulting .deb
 
