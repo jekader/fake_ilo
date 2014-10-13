@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# generate certificates if absent
+if [ ! -f "/etc/fake_ilo/server.crt" ]; then
+	if [ ! -f "/etc/fake_ilo/server.key" ]; then
+		mkdir /etc/fake_ilo/
+		echo "Creating certificates"
+		openssl req -x509 -newkey rsa:2048 -keyout /etc/fake_ilo/server.key -out /etc/fake_ilo/server.crt -nodes -days 9999 -subj "/C=MD/ST=Chisinau/L=Chisinau/O=IT/CN=$(hostname -f)"
+	fi
+fi
+
+# enable the init script
+update-rc.d -f fake_ilo defaults
+invoke-rc.d fake_ilo start

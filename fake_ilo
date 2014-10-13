@@ -12,6 +12,8 @@
 
 set -e
 
+# . /lib/lsb/init-functions
+
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 DAEMON=/usr/bin/ilo.py
 NAME=fake_ilo

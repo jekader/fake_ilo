@@ -7,7 +7,7 @@ Build-Depends: debhelper (>= 9), openssl, python
 
 Package: fake-ilo
 Architecture: any
-Depends: openssl, python, libvirt
+Depends: openssl, python, libvirt-daemon
 Description: iLO emulator
  iLO emulator which can power cycle libvirt VMs. It was written by me to perform
  tests of oVirt/RHEV Power Management features by installing hosts as libvirt

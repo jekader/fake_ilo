@@ -59,20 +59,13 @@ b) manually:
 
  `$ sudo make install`
 
-ENABLE:
--------
-
-register the init script (Debian):
+3. register the init script (Debian):
 
  `update-rc.d fake_ilo enable`
 
+4. Create certificate and key. Data provided in the requested fields is not important: oVirt does not verify certificates:
 
-CUSTOM CERTIFICATE:
--------------------
-
-The install script creates a default certificate which should be enough for testing. To replace it, follwo the steps:
-
-1. go into the config directory and generate a self-signed certificate by running this command. Data provided in the requested fields is not important: oVirt does not verify certificates:
+ `# mkdir /etc/fake_ilo/`
 
  `# cd /etc/fake_ilo/`
 

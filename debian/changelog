@@ -1,3 +1,9 @@
+fake-ilo (0.0.1-4) UNRELEASED; urgency=medium
+
+  * Updated init scripts and installer
+
+ -- Jeka Der <jekader@gmail.com>  Mon, 13 Oct 2014 19:55:00 +0200
+
 fake-ilo (0.0.1-1) UNRELEASED; urgency=medium
 
   * Initial release.
